@@ -11,6 +11,10 @@
 		267ECE5B2BD54F2300EECF41 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267ECE5A2BD54F2300EECF41 /* ContentView.swift */; };
 		267ECE5D2BD54F2500EECF41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 267ECE5C2BD54F2500EECF41 /* Assets.xcassets */; };
 		267ECE602BD54F2500EECF41 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 267ECE5F2BD54F2500EECF41 /* Preview Assets.xcassets */; };
+		267ECE672BD54F5200EECF41 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267ECE662BD54F5200EECF41 /* CardView.swift */; };
+		267ECE692BD5510100EECF41 /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267ECE682BD5510100EECF41 /* LocationViewModel.swift */; };
+		267ECE6E2BD5601F00EECF41 /* Restaurants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267ECE6D2BD5601F00EECF41 /* Restaurants.swift */; };
+		267ECE702BD5608C00EECF41 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267ECE6F2BD5608C00EECF41 /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +23,10 @@
 		267ECE5A2BD54F2300EECF41 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		267ECE5C2BD54F2500EECF41 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		267ECE5F2BD54F2500EECF41 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		267ECE662BD54F5200EECF41 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		267ECE682BD5510100EECF41 /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
+		267ECE6D2BD5601F00EECF41 /* Restaurants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurants.swift; sourceTree = "<group>"; };
+		267ECE6F2BD5608C00EECF41 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +60,9 @@
 			isa = PBXGroup;
 			children = (
 				267ECE582BD54F2300EECF41 /* BiteAdvisorApp.swift */,
-				267ECE5A2BD54F2300EECF41 /* ContentView.swift */,
+				267ECE6C2BD553BF00EECF41 /* Model */,
+				267ECE6A2BD553A300EECF41 /* View */,
+				267ECE6B2BD553AF00EECF41 /* ViewModel */,
 				267ECE5C2BD54F2500EECF41 /* Assets.xcassets */,
 				267ECE5E2BD54F2500EECF41 /* Preview Content */,
 			);
@@ -65,6 +75,32 @@
 				267ECE5F2BD54F2500EECF41 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		267ECE6A2BD553A300EECF41 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				267ECE5A2BD54F2300EECF41 /* ContentView.swift */,
+				267ECE662BD54F5200EECF41 /* CardView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		267ECE6B2BD553AF00EECF41 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				267ECE682BD5510100EECF41 /* LocationViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		267ECE6C2BD553BF00EECF41 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				267ECE6D2BD5601F00EECF41 /* Restaurants.swift */,
+				267ECE6F2BD5608C00EECF41 /* NetworkManager.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +173,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				267ECE702BD5608C00EECF41 /* NetworkManager.swift in Sources */,
+				267ECE6E2BD5601F00EECF41 /* Restaurants.swift in Sources */,
 				267ECE5B2BD54F2300EECF41 /* ContentView.swift in Sources */,
+				267ECE672BD54F5200EECF41 /* CardView.swift in Sources */,
 				267ECE592BD54F2300EECF41 /* BiteAdvisorApp.swift in Sources */,
+				267ECE692BD5510100EECF41 /* LocationViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +315,7 @@
 				DEVELOPMENT_TEAM = V6R32R32N9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please allow us to access your location to find you nearby restaurants";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -304,6 +345,7 @@
 				DEVELOPMENT_TEAM = V6R32R32N9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please allow us to access your location to find you nearby restaurants";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
