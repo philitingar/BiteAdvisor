@@ -13,7 +13,7 @@ struct ContentView: View {
     
     @State var restaurants: [Business] = []
     @State var restaurantIndex = 0
-    @State var disabledAddButton: Bool = false
+    @State var disabledAddButton: Bool = false// disables the button if pressed too many times
     
     var body: some View {
         NavigationView {
@@ -34,8 +34,10 @@ struct ContentView: View {
                     }, label: {
                         Text("Previous")
                             .foregroundColor(.primary)
+                            .bold()
                             .frame(width: 100, height: 40)
                             .background(Color.green)
+                            .opacity(0.8)
                             .cornerRadius(15)
                             .padding()
                     })
@@ -58,8 +60,10 @@ struct ContentView: View {
                     }, label: {
                         Text("Next")
                             .foregroundColor(.primary)
+                            .bold()
                             .frame(width: 100, height: 40)
                             .background(Color.green)
+                            .opacity(0.8)
                             .cornerRadius(15)
                             .padding()
                     })
@@ -68,10 +72,7 @@ struct ContentView: View {
             }
         }
         .task {
-                //print(restaurants!.first)
-                //restaurant = restaurants!.first
             await loadData(offset: self.restaurants.count)
-        
         }
     }
     
@@ -91,8 +92,7 @@ struct ContentView: View {
     }
 }
 
-
-
 #Preview {
     ContentView()
+        
 }
