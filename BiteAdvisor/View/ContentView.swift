@@ -17,57 +17,57 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            VStack {
-                if restaurants.count > 0 {
-                    CardView(restaurant: restaurants[restaurantIndex])
-                        .onChange(of: restaurantIndex) {
-                            print(restaurantIndex)
-                        }
-                }
-                HStack {
-                    Button(action: {
-                        print("tapped!")
-                        let newIndex = restaurantIndex - 1
-                        if restaurantIndex > 0 {
-                            restaurantIndex = newIndex
-                        }
-                    }, label: {
-                        Text("Previous")
-                            .foregroundColor(.primary)
-                            .bold()
-                            .frame(width: 100, height: 40)
-                            .background(Color.green)
-                            .opacity(0.8)
-                            .cornerRadius(15)
-                            .padding()
-                    })
-                    Spacer()
-                    Button(action: {
-                        Task {
+            ZStack {
+                LinearGradient(gradient: Gradient(colors: [.teal, .blue,.black, .black]), startPoint: .top, endPoint: .bottom)
+                    .ignoresSafeArea()
+                VStack {
+                    if restaurants.count > 0 {
+                        CardView(restaurant: restaurants[restaurantIndex])
+                            .onChange(of: restaurantIndex) {
+                                print(restaurantIndex)
+                            }
+                    }
+                    HStack {
+                        Button(action: {
                             print("tapped!")
-                            let newIndex = restaurantIndex + 1
-                            if newIndex < restaurants.count {
-                                restaurantIndex = newIndex
-                            } else {
-                                disabledAddButton = true
-                                do {
-                                    await loadData(offset: self.restaurants.count)
-                                }
-                                disabledAddButton = false
+                            let newIndex = restaurantIndex - 1
+                            if restaurantIndex > 0 {
                                 restaurantIndex = newIndex
                             }
-                        }
-                    }, label: {
-                        Text("Next")
-                            .foregroundColor(.primary)
-                            .bold()
-                            .frame(width: 100, height: 40)
-                            .background(Color.green)
-                            .opacity(0.8)
-                            .cornerRadius(15)
-                            .padding()
-                    })
-                    .disabled(disabledAddButton)
+                        }, label: {
+                            Text("Previous")
+                                .bold()
+                                .frame(width: 100, height: 40)
+                                .foregroundColor(.white)
+                                .overlay(Capsule().stroke(LinearGradient(gradient: Gradient(colors: [Color.teal, Color.blue]), startPoint: .leading, endPoint: .trailing), lineWidth: 5))
+                                .padding()
+                        })
+                        Spacer()
+                        Button(action: {
+                            Task {
+                                print("tapped!")
+                                let newIndex = restaurantIndex + 1
+                                if newIndex < restaurants.count {
+                                    restaurantIndex = newIndex
+                                } else {
+                                    disabledAddButton = true
+                                    do {
+                                        await loadData(offset: self.restaurants.count)
+                                    }
+                                    disabledAddButton = false
+                                    restaurantIndex = newIndex
+                                }
+                            }
+                        }, label: {
+                            Text("Next")
+                                .bold()
+                                .frame(width: 100, height: 40)
+                                .foregroundColor(.white)
+                                .overlay(Capsule().stroke(LinearGradient(gradient: Gradient(colors: [Color.teal, Color.blue]), startPoint: .leading, endPoint: .trailing), lineWidth: 5))
+                                .padding()
+                        })
+                        .disabled(disabledAddButton)
+                    }
                 }
             }
         }

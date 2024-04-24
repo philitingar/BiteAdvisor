@@ -17,7 +17,7 @@ struct CardView: View {
         VStack {
             ZStack {
                 RoundedRectangle(cornerRadius: 25.0, style: .continuous)
-                    .fill(.green.opacity(0.3))
+                    .fill(LinearGradient(gradient: Gradient(colors: [.black, .black, .blue]), startPoint: .top, endPoint: .bottom))
                 GeometryReader { geometry in
                     VStack {
                         AsyncImage(url: URL(string: restaurant.imageURL)) { image in image.resizable() } placeholder: { Color.red }
@@ -25,13 +25,16 @@ struct CardView: View {
                             .clipShape(RoundedRectangle(cornerRadius: 25))
                             .scaledToFit()
                             .frame(width: geometry.size.width, height: geometry.size.height * 0.65)
-                        Text(restaurant.name)
-                            .font(.title)
-                            .bold()
-                            .foregroundColor(.primary)
-                        Text(" Rating: \(restaurant.rating, specifier: "%.1f")")
-                            .font(.headline)
-                            .foregroundColor(.primary)
+                        Spacer()
+                        VStack {
+                            Text(restaurant.name)
+                                .font(.title)
+                                .bold()
+                                .foregroundColor(.white)
+                            Text(" Rating: \(restaurant.rating, specifier: "%.1f")")
+                                .font(.headline)
+                                .foregroundColor(.white)
+                        }.padding()
                     }
                 }
             }.padding(30)
