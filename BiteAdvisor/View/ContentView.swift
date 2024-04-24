@@ -18,7 +18,8 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                LinearGradient(gradient: Gradient(colors: [.teal, .blue,.black, .black]), startPoint: .top, endPoint: .bottom)
+              //  LinearGradient(gradient: Gradient(colors: [.teal, .cyan, .blue,.black, .black, .black]), startPoint: .top, endPoint: .bottom)
+                AngularGradient(gradient: Gradient(colors: [.blue, .black, .blue, .cyan]), center: .topTrailing)
                     .ignoresSafeArea()
                 VStack {
                     if restaurants.count > 0 {
@@ -39,7 +40,7 @@ struct ContentView: View {
                                 .bold()
                                 .frame(width: 100, height: 40)
                                 .foregroundColor(.white)
-                                .overlay(Capsule().stroke(LinearGradient(gradient: Gradient(colors: [Color.teal, Color.blue]), startPoint: .leading, endPoint: .trailing), lineWidth: 5))
+                                .overlay(Capsule().stroke(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.cyan, Color.teal]), startPoint: .leading, endPoint: .trailing), lineWidth: 5))
                                 .padding()
                         })
                         Spacer()
@@ -63,7 +64,7 @@ struct ContentView: View {
                                 .bold()
                                 .frame(width: 100, height: 40)
                                 .foregroundColor(.white)
-                                .overlay(Capsule().stroke(LinearGradient(gradient: Gradient(colors: [Color.teal, Color.blue]), startPoint: .leading, endPoint: .trailing), lineWidth: 5))
+                                .overlay(Capsule().stroke(LinearGradient(gradient: Gradient(colors: [Color.teal, Color.cyan, Color.blue]), startPoint: .leading, endPoint: .trailing), lineWidth: 5))
                                 .padding()
                         })
                         .disabled(disabledAddButton)

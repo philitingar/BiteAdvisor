@@ -17,7 +17,8 @@ struct CardView: View {
         VStack {
             ZStack {
                 RoundedRectangle(cornerRadius: 25.0, style: .continuous)
-                    .fill(LinearGradient(gradient: Gradient(colors: [.black, .black, .blue]), startPoint: .top, endPoint: .bottom))
+                   // .fill(LinearGradient(gradient: Gradient(colors: [.black, .black, .blue]), startPoint: .top, endPoint: .bottom))
+                    .fill(AngularGradient(gradient: Gradient(colors: [.blue, .black, .blue, .cyan]), center: .topTrailing))
                 GeometryReader { geometry in
                     VStack {
                         AsyncImage(url: URL(string: restaurant.imageURL)) { image in image.resizable() } placeholder: { Color.red }
